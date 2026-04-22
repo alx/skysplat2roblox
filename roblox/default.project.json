@@ -1,0 +1,33 @@
+{
+  "name": "skysplat2roblox",
+  "tree": {
+    "$className": "DataModel",
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "WorldLoader": {
+        "$path": "src/ServerScriptService/WorldLoader.server.lua"
+      }
+    },
+
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "Navigation": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/Navigation.client.lua"
+        },
+        "Minimap": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/Minimap.client.lua"
+        }
+      }
+    },
+
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "WorldConfig": {
+        "$path": "src/ReplicatedStorage/WorldConfig.lua"
+      }
+    }
+  }
+}

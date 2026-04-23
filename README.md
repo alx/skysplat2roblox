@@ -75,11 +75,14 @@ Output files appear in `.\out\`.
 
 ### 5 · Install the Studio plugin
 
+The Plugins folder may not exist yet if Roblox Studio was never opened — create it first:
+
 ```powershell
+mkdir "%LOCALAPPDATA%\Roblox\Plugins"
 copy studio_plugin\SkySplatImporter.plugin.lua "%LOCALAPPDATA%\Roblox\Plugins\"
 ```
 
-Or paste this path in Explorer's address bar:
+Or paste this path in Explorer's address bar to open the folder manually:
 `%LOCALAPPDATA%\Roblox\Plugins\`
 
 Restart Roblox Studio — the **🛸 SkySplat** button appears in the Plugins tab.
@@ -100,6 +103,7 @@ python publish\publish.py --place out\world.rbxlx
 | `python` not recognised | Re-run the Python installer and tick **"Add to PATH"** |
 | `pip` not found | Use `python -m pip install …` instead |
 | `scipy` build error | Install **Microsoft C++ Build Tools** from [visualstudio.microsoft.com/visual-cpp-build-tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) |
+| `Le chemin d'accès spécifié est introuvable` | Run `mkdir "%LOCALAPPDATA%\Roblox\Plugins"` first, then copy again |
 | Permission denied on plugin copy | Run PowerShell as Administrator |
 | `%LOCALAPPDATA%` not found | Full path: `C:\Users\YourName\AppData\Local\Roblox\Plugins\` |
 

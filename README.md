@@ -30,6 +30,81 @@ roblox.com/games/YOUR_PLACE_ID
 
 ---
 
+## Windows setup
+
+> Works on Windows 10 / 11. Use **PowerShell** or **Command Prompt** — no WSL required.
+
+### 1 · Install Python
+
+1. Download **Python 3.11+** from [python.org/downloads](https://www.python.org/downloads/windows/)
+2. Run the installer — **tick "Add python.exe to PATH"** before clicking Install
+3. Open a new terminal and verify:
+
+```powershell
+python --version   # Python 3.11.x or higher
+```
+
+### 2 · Clone the repo
+
+```powershell
+git clone https://github.com/alx/skysplat2roblox.git
+cd skysplat2roblox
+```
+
+> No Git? Download from [git-scm.com](https://git-scm.com/download/win) or use **Download ZIP** on GitHub.
+
+### 3 · Install dependencies
+
+```powershell
+pip install -r requirements.txt
+```
+
+If `pip` is not found, use `python -m pip install -r requirements.txt`.
+
+### 4 · Run the pipeline
+
+```powershell
+# Demo mode — no drone file needed:
+python -m pipeline --demo --out .\out
+
+# With your own capture:
+python -m pipeline scene.ply --out .\out --resolution 512
+```
+
+Output files appear in `.\out\`.
+
+### 5 · Install the Studio plugin
+
+```powershell
+copy studio_plugin\SkySplatImporter.plugin.lua "%LOCALAPPDATA%\Roblox\Plugins\"
+```
+
+Or paste this path in Explorer's address bar:
+`%LOCALAPPDATA%\Roblox\Plugins\`
+
+Restart Roblox Studio — the **🛸 SkySplat** button appears in the Plugins tab.
+
+### 6 · Publish via CLI (optional)
+
+```powershell
+copy .env.example .env
+# Open .env in Notepad — fill in ROBLOX_API_KEY, ROBLOX_UNIVERSE_ID, ROBLOX_PLACE_ID
+
+python publish\publish.py --place out\world.rbxlx
+```
+
+### Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| `python` not recognised | Re-run the Python installer and tick **"Add to PATH"** |
+| `pip` not found | Use `python -m pip install …` instead |
+| `scipy` build error | Install **Microsoft C++ Build Tools** from [visualstudio.microsoft.com/visual-cpp-build-tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) |
+| Permission denied on plugin copy | Run PowerShell as Administrator |
+| `%LOCALAPPDATA%` not found | Full path: `C:\Users\YourName\AppData\Local\Roblox\Plugins\` |
+
+---
+
 ## Quick start
 
 ### 1 · Install Python dependencies
